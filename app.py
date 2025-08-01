@@ -1,6 +1,6 @@
 from dash import Dash, html, callback, Input, Output, State, no_update
 
-app = Dash(__name__, )
+
 
 fondo = 'assets/fondo.mp4'
 user_name = 'biscuittp'
@@ -18,6 +18,8 @@ redes = [
 
 video_destacado = 'https://www.youtube.com/embed/QX_gzgbY5so?si=_YKnD_ZiIwPt4YVP'
 
+app = Dash(__name__, )
+server = app.server 
 
 app.layout = html.Div(
     id='main',
