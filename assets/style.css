@@ -1,0 +1,99 @@
+*{
+    padding: 0px; margin: 0px;
+}
+@import url('https://fonts.googleapis.com/css2?family=Corben:wght@400;700&display=swap');
+
+@font-face{
+    font-family: 'game';
+    src: url('Game\ Paused\ DEMO.otf') format('truetype');
+}
+
+body{
+    background: rgb(20, 17, 29);
+    font-family: game
+}
+
+#main{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#fondo{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    right: 100%;
+    width: 100%
+}
+
+#fondo_2{
+    background: linear-gradient(to top, #adadef, #4a4aeb);
+    width: 500px;
+    border-radius: 20px;
+    border: 3px solid rgb(44, 43, 43);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 600px;
+}
+
+#avatar{
+    height: 400px;
+    width: 98%;
+    border-radius: 20px;
+    /* Difuminar la parte inferior */
+    -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+
+#user_name{
+    font-size: 40px;
+    font-weight: bold;
+    position: absolute;
+    top: 350px
+}
+
+.contenedor_links{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background: none;
+    width: 90%;
+    margin: 0% 10%;
+}
+
+.link{
+    background: rgb(52, 52, 52);
+    color: white;
+    width: 95%;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgb(0, 0, 0);
+    font-size: 20px;
+    text-decoration: none;
+    padding: 10px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icono{
+    height: 40px;
+}
+
+#video_destacado{
+    border: none;
+    width: 92%;
+    height: 250px;
+    margin: 8%;
+    border-radius: 5px;
+    box-shadow: 10px 5px 20px black;
+}
