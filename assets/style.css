@@ -1,5 +1,6 @@
 *{
     padding: 0px; margin: 0px;
+    text-decoration: none;
 }
 @import url('https://fonts.googleapis.com/css2?family=Corben:wght@400;700&display=swap');
 
@@ -18,6 +19,18 @@ body{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+#button_audio{
+    background: transparent;
+    border: none;
+    font-size: 50px;
+    cursor: pointer;
+    position: fixed;
+    z-index: 1000;
+    top: 0px;
+    left: 0px;
+    right: 600px;
 }
 
 #fondo{
@@ -73,21 +86,59 @@ body{
 
 .link{
     background: rgb(52, 52, 52);
-    color: white;
     width: 95%;
+    height: 35px;
     border-radius: 5px;
     box-shadow: 5px 5px 10px rgb(0, 0, 0);
-    font-size: 20px;
-    text-decoration: none;
     padding: 10px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.link:hover{
+    background-color: rgb(250, 209, 209);
+}
+
 .icono{
     height: 40px;
 }
+.link:hover .icono{
+    height: 45px;
+}
+
+.texto{
+    color: white;
+    font-size: 20px;
+}
+.link:hover .texto{
+    font-size: 25px;
+    color: black;
+}
+
+.link_imagen{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.imagen{
+    height: 280px;
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px black;
+    margin: 5px;
+}
+.imagen:hover{
+    height: 290px;
+    margin: 0px;
+}
+.imagen_texto{
+    position: absolute;
+    z-index: 999;
+    top: 650px;
+    left: 50%;
+    padding: 0px;
+}
+.link_imagen:hover .texto{font-size: 25px}
 
 #video_destacado{
     border: none;

@@ -1,17 +1,19 @@
-from dash import Dash, html, dcc
+from dash import Dash, html, callback, Input, Output, State, no_update
 
-app = Dash()
+app = Dash(__name__, )
 
+fondo = 'assets/fondo.mp4'
 user_name = 'biscuittp'
+avatar = 'assets/avatar.gif'
 
 redes = [
-    {"name": "twitch", 'url': 'https://www.twitch.tv/biscuittp', 'icono': "assets/iconos/twitch.png", "tipo": "texto"},
-    {"name": "facebook", 'url': 'https://www.facebook.com/profile.php?id=61577564854485', 'icono': "assets/iconos/facebook.png", "tipo": "texto"},
-    {"name": "tiktok", 'url': 'https://www.twitch.tv/biscuittp', 'icono': "assets/iconos/tiktok.png", "tipo": "texto"},
-    {"name": "discord", 'url': 'https://discord.com/invite/qxbnXfvYqE', 'icono': "assets/iconos/discord.png", "tipo": "texto"},
-    {"name": "youtube", 'url': 'https://www.youtube.com/@Biscuittp', 'icono': "assets/iconos/youtube.png", "tipo": "texto"},
-    {"name": "donaciones", "url": "https://streamlabs.com/biscuittp/tip", "icono": "assets/iconos/donacion.png", "tipo": "imagen"},
-    {"name": "biscuittp#lan", "url": "https://www.leagueofgraphs.com/es/summoner/lan/Biscuittp-LAN", "icono": "assets/iconos/challenger.png", "tipo": "texto"},
+    {"name": "donaciones ❤️", "url": "https://streamlabs.com/biscuittp/tip", "imagen": "assets/imagenes/ekko_jinx.gif", "tipo": "imagen"},
+    {"name": "twitch", 'url': 'https://www.twitch.tv/biscuittp', 'imagen': "assets/imagenes/twitch.png", "tipo": "texto"},
+    {"name": "facebook", 'url': 'https://www.facebook.com/profile.php?id=61577564854485', 'imagen': "assets/imagenes/facebook.png", "tipo": "texto"},
+    {"name": "tiktok", 'url': 'https://www.tiktok.com/@biscuittp', 'imagen': "assets/imagenes/tiktok.png", "tipo": "texto"},
+    {"name": "discord", 'url': 'https://discord.com/invite/qxbnXfvYqE', 'imagen': "assets/imagenes/discord.png", "tipo": "texto"},
+    {"name": "youtube", 'url': 'https://www.youtube.com/@Biscuittp', 'imagen': "assets/imagenes/youtube.png", "tipo": "texto"},
+    {"name": "biscuittp#lan", "url": "https://www.leagueofgraphs.com/es/summoner/lan/Biscuittp-LAN", "imagen": "assets/imagenes/challenger.png", "tipo": "texto"},
 ]
 
 video_destacado = 'https://www.youtube.com/embed/QX_gzgbY5so?si=_YKnD_ZiIwPt4YVP'
@@ -19,10 +21,19 @@ video_destacado = 'https://www.youtube.com/embed/QX_gzgbY5so?si=_YKnD_ZiIwPt4YVP
 
 app.layout = html.Div(
     id='main',
-    # Fondo
     children=[
+        html.Audio(
+            src='assets/audio.mp3',
+            autoPlay=True,
+            controls=True,
+            loop=True,
+            id='audio',
+            style={'display': 'none'},
+            muted=False,
+        ),
+        # Fondo
         html.Video(
-            src='assets/fondo.mp4',
+            src=fondo,
             id='fondo',
             controls=False,
             autoPlay=True,
@@ -32,14 +43,21 @@ app.layout = html.Div(
         html.Div(
             id='fondo_2',
             children=[
+                html.Button(
+                '🔊',
+                id='button_audio',
+                ),
+                # Avatar
                 html.Img(
-                    src='assets/avatar.gif',
+                    src=avatar,
                     id='avatar',
                 ),
                 html.P(
                     user_name.title(),
                     id='user_name',
                 ),
+                
+                # Links
                 html.Div(
                     className='contenedor_links',
                     children=[
@@ -49,16 +67,32 @@ app.layout = html.Div(
                             href=red['url'],
                             children=[
                                 html.Img(
-                                    src=red['icono'],
+                                    src=red['imagen'],
                                     className='icono',
                                 ),
                                 html.P(
                                     children=red['name'].title(),
-                                    className='url_nombre'
-                                ),
+                                    className='url_nombre texto'
+                                ) if red['tipo'] == 'texto' else None,
                                 html.Div(
                                     ' '
                                 ),
+                            ]
+                        ) 
+                        if red['tipo'] == 'texto' else
+                        html.A(
+                            target='_blank',
+                            href=red['url'],
+                            className='link_imagen',
+                            children=[
+                                html.Img(
+                                    src=red['imagen'],
+                                    className='imagen',
+                                ),
+                                html.P(
+                                    children=red['name'].title(),
+                                    className='texto imagen_texto',
+                                )
                             ]
                         )
                         for red in redes
@@ -69,10 +103,10 @@ app.layout = html.Div(
                     id='video_destacado',
                 ),
                 html.Img(
-                    src='assets/gato.gif'
+                    src='assets/gato.gif',
                 ),
                 html.P(
-                    children='Followme ❤️',
+                    children='Follow me ❤️',
                     style={'font-size': '30px'}
                 )
             ]
@@ -80,6 +114,20 @@ app.layout = html.Div(
     ]
 )
 
+@callback(
+    Output(component_id='button_audio', component_property='children'),
+    Output(component_id='audio', component_property='muted'),
+    Input(component_id='button_audio', component_property='n_clicks'),
+    State(component_id='button_audio', component_property='children'),
+)
+def controlar_audio(n_clicks, estado):
+    if not n_clicks:
+        return no_update, no_update
+    
+    if estado == '🔊':
+        return '🔇', True
+    elif estado == '🔇':
+        return '🔊', False
 
 if __name__ == '__main__':
     app.run_server(debug=True, port=8055)
