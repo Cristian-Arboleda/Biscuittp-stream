@@ -1,7 +1,5 @@
 from dash import Dash, html, callback, Input, Output, State, no_update
 
-
-
 fondo = 'assets/fondo.mp4'
 user_name = 'biscuittp'
 avatar = 'assets/avatar.gif'
