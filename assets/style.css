@@ -9,6 +9,12 @@
     src: url('Game\ Paused\ DEMO.otf') format('truetype');
 }
 
+audio::-webkit-media-controls-time-remaining-display,
+audio::-webkit-media-controls-current-time-display,
+audio::-webkit-media-controls-timeline {
+  display: none !important;
+}
+
 body{
     background: rgb(20, 17, 29);
     font-family: game
@@ -21,6 +27,11 @@ body{
     align-items: center;
 }
 
+audio{
+    width: 150px;
+    border-radius: 5px;
+    display: none
+}
 #button_audio{
     background: transparent;
     border: none;
@@ -29,8 +40,9 @@ body{
     position: fixed;
     z-index: 1000;
     top: 0px;
-    left: 0px;
-    right: 600px;
+    left: 500px;
+    right: 0px;
+    width: 50px;
 }
 
 #fondo{

@@ -29,9 +29,8 @@ app.layout = html.Div(
             autoPlay=True,
             controls=True,
             loop=True,
-            id='audio',
-            style={'display': 'none'},
             muted=False,
+            id='audio',
         ),
         # Fondo
         html.Video(
@@ -117,19 +116,19 @@ app.layout = html.Div(
 )
 
 @callback(
-    Output(component_id='button_audio', component_property='children'),
     Output(component_id='audio', component_property='muted'),
+    Output(component_id='button_audio', component_property='children'),
     Input(component_id='button_audio', component_property='n_clicks'),
-    State(component_id='button_audio', component_property='children'),
+    State(component_id='audio', component_property='muted'),
 )
-def controlar_audio(n_clicks, estado):
+def controlar_sonido(n_clicks, muted):
     if not n_clicks:
-        return no_update, no_update
+        return False, '🔊'
     
-    if estado == '🔊':
-        return '🔇', True
-    elif estado == '🔇':
-        return '🔊', False
+    if muted:
+        return False, '🔊'
+    elif not muted:
+        return True, '🔇'
 
 if __name__ == '__main__':
     app.run_server(debug=True, port=8055)
