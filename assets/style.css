@@ -1,7 +1,14 @@
 *{
-    padding: 0px; margin: 0px;
+    padding: 0px; margin: 0px auto;
     text-decoration: none;
+    text-align: center;
 }
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Corben:wght@400;700&display=swap');
 
 @font-face{
@@ -16,6 +23,7 @@ audio::-webkit-media-controls-timeline {
 }
 
 
+
 body{
     background: rgb(20, 17, 29);
     font-family: game
@@ -27,12 +35,12 @@ body{
     justify-content: center;
     align-items: center;
     width: 600px;
-    margin: 0px auto
+    margin: 15px auto;
 }
 
 audio{
     width: 150px;
-    height: 25px;
+    height: 35px;
     display: flex;
     position: fixed;
     z-index: 1000;
@@ -78,9 +86,15 @@ audio{
     margin-top: 25px;
     margin-bottom: 600px;
 }
+/*ancho del fondo_2 en base a la resolucion de la pantalla*/
+@media (max-width: 750px){
+    #fondo_2{
+        width: 350px;
+    }
+}
 
 #avatar{
-    height: 400px;
+    height: 450px;
     width: 98%;
     border-radius: 20px;
     /* Difuminar la parte inferior */
@@ -92,7 +106,7 @@ audio{
     font-size: 40px;
     font-weight: bold;
     position: absolute;
-    top: 350px
+    top: 450px;
 }
 
 .contenedor_links{
@@ -101,17 +115,16 @@ audio{
     align-items: center;
     gap: 15px;
     background: none;
-    width: 90%;
+    width: 95%;
     margin: 0% 10%;
 }
 
 .link{
     background: rgb(52, 52, 52);
-    width: 95%;
-    height: 35px;
+    width: 100%;
+    height: 60px;
     border-radius: 5px;
     box-shadow: 5px 5px 10px rgb(0, 0, 0);
-    padding: 10px 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -122,7 +135,9 @@ audio{
 }
 
 .icono{
+    width: 30;
     height: 40px;
+    margin: 20px;
 }
 .link:hover .icono{
     height: 45px;
@@ -143,10 +158,10 @@ audio{
     align-items: center;
 }
 .imagen{
-    height: 280px;
+    width: 98%;
+    height: 100%;
     border-radius: 5px;
     box-shadow: 5px 5px 10px black;
-    margin: 5px;
 }
 .imagen:hover{
     height: 290px;

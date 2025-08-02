@@ -73,9 +73,7 @@ app.layout = html.Div(
                                     children=red['name'].title(),
                                     className='url_nombre texto'
                                 ) if red['tipo'] == 'texto' else None,
-                                html.Div(
-                                    ' '
-                                ),
+
                             ]
                         ) 
                         if red['tipo'] == 'texto' else
