@@ -134,4 +134,4 @@ def controlar_sonido(n_clicks, muted):
         return True, '🔇'
 
 if __name__ == '__main__':
-    app.run_server(debug=True, port=8055)
+    app.run(debug=True, port=8055)
