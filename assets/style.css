@@ -154,7 +154,9 @@ audio{
 
 .link_emogi{
     margin-right: 20px;
+    font-size: 18px;
 }
+.link:hover .link_emogi{font-size: 22px}
 
 .link_imagen{
     display: flex;
