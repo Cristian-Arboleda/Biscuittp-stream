@@ -86,12 +86,7 @@ audio{
     margin-top: 25px;
     margin-bottom: 600px;
 }
-/*ancho del fondo_2 en base a la resolucion de la pantalla*/
-@media (max-width: 750px){
-    #fondo_2{
-        width: 350px;
-    }
-}
+
 
 #avatar{
     height: 450px;
@@ -176,7 +171,7 @@ audio{
 .imagen_texto{
     position: absolute;
     z-index: 999;
-    top: 650px;
+    top: 750px;
     left: 50%;
     padding: 0px;
 }
@@ -189,4 +184,12 @@ audio{
     margin: 8%;
     border-radius: 5px;
     box-shadow: 10px 5px 20px black;
+}
+
+
+/*ancho del fondo_2 en base a la resolucion de la pantalla*/
+@media (max-width: 750px){
+    #fondo_2{
+        width: 350px;
+    };
 }
