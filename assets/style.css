@@ -1,5 +1,5 @@
 *{
-    padding: 0px; margin: 0px auto;
+    padding: 0px; margin: 0px;
     text-decoration: none;
     text-align: center;
 }
@@ -150,6 +150,10 @@ audio{
 .link:hover .texto{
     font-size: 25px;
     color: black;
+}
+
+.link_emogi{
+    margin-right: 20px;
 }
 
 .link_imagen{

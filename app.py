@@ -72,8 +72,12 @@ app.layout = html.Div(
                                 html.P(
                                     children=red['name'].title(),
                                     className='url_nombre texto'
-                                ) if red['tipo'] == 'texto' else None,
-
+                                ),
+                                html.P(
+                                    className='link_emogi',
+                                    children='⭐',
+                                )
+                                if red['tipo'] == 'texto' else None,
                             ]
                         ) 
                         if red['tipo'] == 'texto' else
@@ -89,7 +93,7 @@ app.layout = html.Div(
                                 html.P(
                                     children=red['name'].title(),
                                     className='texto imagen_texto',
-                                )
+                                ),
                             ]
                         )
                         for red in redes
