@@ -19,6 +19,8 @@ video_destacado = 'https://www.youtube.com/embed/QX_gzgbY5so?si=_YKnD_ZiIwPt4YVP
 app = Dash(__name__, )
 server = app.server 
 
+app.title(user_name)
+
 app.layout = html.Div(
     id='main',
     children=[
